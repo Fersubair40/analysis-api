@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       resources :accounts, only: [:create, :show]
       resources :balance, controller: 'daily_balance', only: [:create, :index]
       resources :summary, controller: "daily_summary",  only: [:create, :destroy]
+      post "password/reset", to: 'passwords#reset'
+      post "password/forget", to: 'passwords#forget'
     end
     namespace :v2 do
       resources
