@@ -5,8 +5,11 @@ module Authenticate
     return nil if header.nil?
     decoded = JsonWebToken.decode(header)
     
-    @current_user = User.find(decoded[:user_id]) rescue
-      ActiveRecord::RecordNotFound
+    @current_user = User.find(decoded[:user_id])
+  rescue ActiveRecord::RecordNotFound
+    # raise custom error
+  rescue JWT::ExpiredSignature
+    raise ExceptionHandler::ExpiredSignature, "Token as Expired Login again"
   end
 
   private

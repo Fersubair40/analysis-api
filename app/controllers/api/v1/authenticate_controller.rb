@@ -9,7 +9,7 @@ class Api::V1::AuthenticateController < ApplicationController
         token: JsonWebToken.encode(user_id: @user.id)
       }, status: :ok
     else 
-      render json: {message: "unathorized or invalid credentials"}, status: :unauthorized
+      render json: {message: "unauthorized or invalid credentials"}, status: :unauthorized
     end
   end
 

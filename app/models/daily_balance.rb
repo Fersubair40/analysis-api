@@ -6,7 +6,7 @@ class DailyBalance < ApplicationRecord
   validates :date, presence: true
   validates :balance, numericality: { greater_than_or_equal_to: 0 }, presence: true
 
-  scope :today_bal, -> { where('date == ?', Date.today) }
+  # scope :today_bal, -> { where('date == ?', Date.today) }
 
   belongs_to :account
 end

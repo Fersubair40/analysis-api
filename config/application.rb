@@ -12,6 +12,7 @@ require "action_mailbox/engine"
 require "action_text/engine"
 require "action_view/railtie"
 require "action_cable/engine"
+require "action_dispatch"
 # require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
@@ -34,6 +35,11 @@ module AnallysisApi
     config.filter_parameters << :password
     config.filter_parameters << :password_digest
     config.eager_load_paths << Rails.root.join('lib')
+    config.action_dispatch.rescue_responses.merge!(
+      'ExceptionHandler::ExpiredSignature' => :unauthorized,
+      "ExceptionHandler::DecodeError" => :unauthorized
+    )
+
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
