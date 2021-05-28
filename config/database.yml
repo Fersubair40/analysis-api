@@ -89,6 +89,8 @@ test:
 #
 production:
   <<: *default
-  database: anallysis_api_production
-  username: anallysis_api
-  password: <%= ENV['ANALLYSIS_API_DATABASE_PASSWORD'] %>
+  database: <%= ENV["DB_NAME"] %>
+  username: <%= ENV["DB_USER"] %>
+  password: <%= ENV['DB_PASS'] %>
+  host: <%= ENV["DB_HOST"] %>
+  p: <%= ENV["HOST"] %>

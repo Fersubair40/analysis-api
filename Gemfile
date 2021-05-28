@@ -49,6 +49,8 @@ gem 'active_model_serializers'
 
 gem "rack-cors", "~> 1.1"
 
+gem 'unicorn'
+
 
 gem 'capistrano', '~> 3.11'
 gem 'capistrano-rails', '~> 1.4'
