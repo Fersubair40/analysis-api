@@ -8,7 +8,7 @@ require "capistrano/deploy"
 require 'capistrano/passenger'
 require 'capistrano/rbenv'
 # require "capistrano/rails/assets"
-require "capistrano/rails/migrations"
+# require "capistrano/rails/migrations"
 # Load the SCM plugin appropriate to your project:
 #
 # require "capistrano/scm/hg"
